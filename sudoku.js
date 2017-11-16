@@ -1,16 +1,10 @@
 /*
-Modified from: https://github.com/robatron/sudoku.js
+    Sudoku.js
+    ---------
 
-The MIT License (MIT)
+    A Sudoku puzzle generator and solver JavaScript library.
 
-Copyright (c) 2014 Rob McGuire-Dale
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
+    Please see the README for more details.
 */
 
 (function(root){
@@ -139,7 +133,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             
             // If we have at least difficulty, and the unique candidate count is
             // at least 8, return the puzzle!
-            if(single_candidates.length >= 12 && 
+            if(single_candidates.length >= difficulty && 
                     sudoku._strip_dups(single_candidates).length >= 8){
                 var board = "";
                 var givens_idxs = [];
@@ -152,7 +146,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                         board += sudoku.BLANK_CHAR;
                     }
                 }
-                /*
+                
                 // If we have more than `difficulty` givens, remove some random
                 // givens until we're down to exactly `difficulty`
                 var nr_givens = givens_idxs.length;
@@ -164,7 +158,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                             board.substr(target + 1);
                     }
                 }
-              */ 
+                 */ 
 			if(sudoku.solve(board)){
 				board= sudoku.temp(board);
 			}				
@@ -223,7 +217,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		//temp = 
 		return sudoku.board_grid_to_string(temp);
 	}
-	
     // Solve
     // -------------------------------------------------------------------------
     sudoku.solve = function(board, reverse){
