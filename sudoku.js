@@ -158,8 +158,10 @@
                             board.substr(target + 1);
                     }
                 }
-                 */ 
-			if(sudoku.solve(board)){
+                
+                // Double check board is solvable
+                // TODO: Make a standalone board checker. Solve is expensive.
+               if(sudoku.solve(board)){
 				board= sudoku.temp(board);
 			}				
 		     //   board= sudoku.temp(board);
@@ -217,6 +219,7 @@
 		//temp = 
 		return sudoku.board_grid_to_string(temp);
 	}
+
     // Solve
     // -------------------------------------------------------------------------
     sudoku.solve = function(board, reverse){
