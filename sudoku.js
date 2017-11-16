@@ -1,5 +1,6 @@
 /*
 Modified from: https://github.com/robatron/sudoku.js
+
 The MIT License (MIT)
 
 Copyright (c) 2014 Rob McGuire-Dale
